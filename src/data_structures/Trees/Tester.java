@@ -1,8 +1,7 @@
-package data_structures;
+package data_structures.Trees;
 
+import data_structures.Trees.BinarySearchTree;
 import org.junit.Test;
-
-import java.util.LinkedList;
 
 
 public class Tester {
@@ -10,7 +9,7 @@ public class Tester {
     public void test() {
 
 
-        LinkedList<Integer> heapList = new LinkedList<>();
+        BinarySearchTree<Integer> heapList = new BinarySearchTree<Integer>();
         heapList.add(-2);
         heapList.add(9);
         heapList.add(1);
@@ -20,8 +19,8 @@ public class Tester {
         heapList.add(0);
         heapList.add(5);
 
-        Heap<Integer> heap = new Heap<>(heapList);
-        System.out.println(heapList);
-        System.out.println(heap.heapSort(heapList));
+        heapList.depthFirstSearch();
+        heapList.breadthFirstSearch();
+
     }
 }
