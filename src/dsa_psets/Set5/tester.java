@@ -30,7 +30,7 @@ public class tester {
         graph.insertEdge(v7,v2,null);
         graph.insertEdge(v6,v7,null);
 
-        System.out.println(new undirectedGraphCycle(graph).hasCycle);
+        System.out.println(new GraphCycle(graph).hasCycle);
     }
     // now just inter-connect 1,5 and 7 which will also make a cycle
     @Test
@@ -48,7 +48,7 @@ public class tester {
         graph.insertEdge(v1,v5,null);
         graph.insertEdge(v1,v7,null);
         graph.insertEdge(v5,v7,null);
-        System.out.println(new undirectedGraphCycle(graph).hasCycle);
+        System.out.println(new GraphCycle(graph).hasCycle);
     }
     // now just connect 1 and 7 which will not make a cycle
     @Test
@@ -69,7 +69,7 @@ public class tester {
         graph.insertEdge(v4,v6,null);
         graph.insertEdge(v4,v3,null);
 
-        System.out.println(new undirectedGraphCycle(graph).hasCycle);
+        System.out.println(new GraphCycle(graph).hasCycle);
     }
 
 
@@ -95,7 +95,7 @@ public class tester {
         graph.insertEdge(v5,v6,null);
 
 
-        System.out.println(new directedGraphCycle(graph).hasCycle);
+        System.out.println(new DigraphCycle(graph).hasCycle);
     }
 
     // this is when we add a edge from 6 to 4, which produces a cycle
@@ -118,7 +118,7 @@ public class tester {
         graph.insertEdge(v6,v4,null);
 
 
-        System.out.println(new directedGraphCycle(graph).hasCycle);
+        System.out.println(new DigraphCycle(graph).hasCycle);
     }
 
 

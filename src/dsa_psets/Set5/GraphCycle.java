@@ -7,12 +7,12 @@ import java.util.LinkedHashSet;
  * Created by Dorian on 09-Mar-16.
  * DS&A
  */
-public class undirectedGraphCycle
+public class GraphCycle
 {
     private LinkedHashSet<Graph.Vertex> visited;
     protected boolean hasCycle;
     // we will use a utility class with a constructor which receives the graph
-    public undirectedGraphCycle(Graph graph)
+    public GraphCycle(Graph graph)
     {
         // we initialize the set which stores visited vertices
         visited = new LinkedHashSet<>(graph.numVertices());

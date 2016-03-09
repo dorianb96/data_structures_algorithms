@@ -6,12 +6,12 @@ import java.util.HashSet;
  * Created by Dorian on 09-Mar-16.
  * DS&A
  */
-public class directedGraphCycle {
+public class DigraphCycle {
     private HashSet<Graph.Vertex> visited;
     private HashSet<Graph.Vertex> stack;
     protected boolean hasCycle;
 
-    public directedGraphCycle(Graph graph){
+    public DigraphCycle(Graph graph){
         // we initialize some useful collections
         visited = new HashSet<>(graph.numVertices());
         stack = new HashSet<>(graph.numVertices());
