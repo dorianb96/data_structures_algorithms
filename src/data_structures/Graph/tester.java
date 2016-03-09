@@ -1,37 +1,128 @@
 package data_structures.Graph;
 
+import data_structures.Graph.*;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 /**
- * Created by Dorian on 02-Mar-16.
+ * Created by Dorian on 09-Mar-16.
  * DS&A
  */
 public class tester {
+    // first make the non-directed graph
     @Test
-    public void test() {
-        Graph<String, String> graph = new Graph<>(true);
-        Graph.Vertex dora = graph.insertVertex("Dora");
-        Graph.Vertex dorian = graph.insertVertex("Dorian");
-        Graph.Vertex ally = graph.insertVertex("Ally");
-        Graph.Vertex baka = graph.insertVertex("baka");
-        Graph.Vertex tata = graph.insertVertex("tata");
-        Graph.Vertex mama = graph.insertVertex("mama");
-        Graph.Vertex seka = graph.insertVertex("seka");
+    public void tester(){
+        Graph<Object,Integer> graph = new Graph<>(false);
+        Graph.Vertex v1 = graph.insertVertex(1);
+        Graph.Vertex v2 = graph.insertVertex(2);
+        Graph.Vertex v3 = graph.insertVertex(3);
+        Graph.Vertex v4 = graph.insertVertex(4);
+        Graph.Vertex v5 = graph.insertVertex(5);
+        Graph.Vertex v6 = graph.insertVertex(6);
+        Graph.Vertex v7 = graph.insertVertex(7);
 
+        graph.insertEdge(v1,v5,null);
+        graph.insertEdge(v1,v7,null);
+        graph.insertEdge(v5,v7,null);
+        graph.insertEdge(v4,v5,null);
+        graph.insertEdge(v4,v6,null);
+        graph.insertEdge(v4,v3,null);
+        graph.insertEdge(v3,v6,null);
+        graph.insertEdge(v3,v2,null);
+        graph.insertEdge(v6,v2,null);
+        graph.insertEdge(v7,v2,null);
+        graph.insertEdge(v6,v7,null);
 
-
-        graph.insertEdge(baka,tata, "punica od");
-        graph.insertEdge(baka,mama, "mama od");
-        graph.insertEdge(tata,dorian, "tata od");
-        graph.insertEdge(dorian,dora, "decko od");
-        graph.insertEdge(dora,ally, "vlasnica od");
-        graph.insertEdge(mama,seka, "mama od");
-     //   System.out.println(BreadthFirstSearch.BreadthFirstSearch(graph,baka).entrySet());
-        TopologicalSort.topologicalSort2(graph);
-        //System.out.println(DepthFirstSearch.DepthFirstSearch(graph,baka).entrySet());
-     //   System.out.println(BreadthFirstSearch.BreadthFirstSearch(graph,baka).entrySet());
-
+        System.out.println(new undirectedGraphCycle(graph).hasCycle);
     }
+    // now just inter-connect 1,5 and 7 which will also make a cycle
+    @Test
+    public void tester2(){
+        Graph<Object,Integer> graph = new Graph<>(false);
+        Graph.Vertex v1 = graph.insertVertex(1);
+        Graph.Vertex v2 = graph.insertVertex(2);
+        Graph.Vertex v3 = graph.insertVertex(3);
+        Graph.Vertex v4 = graph.insertVertex(4);
+        Graph.Vertex v5 = graph.insertVertex(5);
+        Graph.Vertex v6 = graph.insertVertex(6);
+        Graph.Vertex v7 = graph.insertVertex(7);
+
+
+        graph.insertEdge(v1,v5,null);
+        graph.insertEdge(v1,v7,null);
+        graph.insertEdge(v5,v7,null);
+        System.out.println(new undirectedGraphCycle(graph).hasCycle);
+    }
+    // now just connect 1 and 7 which will not make a cycle
+    @Test
+    public void tester3(){
+        Graph<Object,Integer> graph = new Graph<>(false);
+        Graph.Vertex v1 = graph.insertVertex(1);
+        Graph.Vertex v2 = graph.insertVertex(2);
+        Graph.Vertex v3 = graph.insertVertex(3);
+        Graph.Vertex v4 = graph.insertVertex(4);
+        Graph.Vertex v5 = graph.insertVertex(5);
+        Graph.Vertex v6 = graph.insertVertex(6);
+        Graph.Vertex v7 = graph.insertVertex(7);
+
+
+        graph.insertEdge(v1,v5,null);
+        graph.insertEdge(v1,v7,null);
+
+        graph.insertEdge(v4,v6,null);
+        graph.insertEdge(v4,v3,null);
+
+        System.out.println(new undirectedGraphCycle(graph).hasCycle);
+    }
+
+
+    // now the directed graphs
+
+    // this is the original example from assignement, it has no cycles
+    @Test
+    public void tester4(){
+        Graph<Object,Integer> graph = new Graph<>(true);
+        Graph.Vertex v1 = graph.insertVertex(1);
+        Graph.Vertex v2 = graph.insertVertex(2);
+        Graph.Vertex v3 = graph.insertVertex(3);
+        Graph.Vertex v4 = graph.insertVertex(4);
+        Graph.Vertex v5 = graph.insertVertex(5);
+        Graph.Vertex v6 = graph.insertVertex(6);
+
+
+        // first we specify origin and then the destination
+        graph.insertEdge(v1,v4,null);
+        graph.insertEdge(v2,v4,null);
+        graph.insertEdge(v3,v4,null);
+        graph.insertEdge(v4,v5,null);
+        graph.insertEdge(v5,v6,null);
+
+
+        System.out.println(new directedGraphCycle(graph).hasCycle);
+    }
+
+    // this is when we add a edge from 6 to 4, which produces a cycle
+    @Test
+    public void tester5(){
+        Graph<Object,Integer> graph = new Graph<>(true);
+        Graph.Vertex v1 = graph.insertVertex(1);
+        Graph.Vertex v2 = graph.insertVertex(2);
+        Graph.Vertex v3 = graph.insertVertex(3);
+        Graph.Vertex v4 = graph.insertVertex(4);
+        Graph.Vertex v5 = graph.insertVertex(5);
+        Graph.Vertex v6 = graph.insertVertex(6);
+
+        graph.insertEdge(v1,v4,null);
+        graph.insertEdge(v2,v4,null);
+        graph.insertEdge(v3,v4,null);
+        graph.insertEdge(v4,v5,null);
+        graph.insertEdge(v5,v6,null);
+        // the added part
+        graph.insertEdge(v6,v4,null);
+
+
+        System.out.println(new directedGraphCycle(graph).hasCycle);
+    }
+
+
+
 }
