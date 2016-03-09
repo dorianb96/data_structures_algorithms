@@ -58,7 +58,7 @@ public class Graph<E,V>  {
                     '}';
         }
     }
-    protected class Vertex<V> {
+    public class Vertex<V> {
         V value;
         Map<Vertex<V>,Edge<E>> incoming;
         Map<Vertex<V>,Edge<E>> outgoing;
