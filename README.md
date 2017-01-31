@@ -7,7 +7,7 @@
 - Dynamic Programming paradigm
 - Recursion/Backtracking problems
 - Interview type problems
-- Sorting problems
+- Sorting problems and algorithms
 - ArrayList
 - Graph
 - HashTable
